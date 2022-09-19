@@ -1,7 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-console.log(galleryItems);
 // {/* <div class="gallery__item">
 //   <a class="gallery__link" href="large-image.jpg">
 //     <img
@@ -31,4 +30,13 @@ function createImgMarkup(imgArr) {
     })
     .join("");
 }
-console.log(galleryDiv);
+galleryDiv.addEventListener("click", onGalleryImgClick);
+function onGalleryImgClick(evt) {
+  evt.preventDefault();
+  const isGalleryImgEl = evt.target.classList.contains("gallery__image");
+  if (!isGalleryImgEl) {
+    return;
+  }
+  const clickedImgOriginalUrl = evt.target.dataset.source;
+  console.log(clickedImgUrl);
+}
