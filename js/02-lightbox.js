@@ -30,9 +30,9 @@ function onGalleryImgClick(evt) {
 }
 function createModaleBoxGallery(imgClickedUrl) {
   var lightbox = new SimpleLightbox(".gallery a", {
-    captionType: "attr",
+    // captionType: "attr",
     captionsData: "alt",
-    captionPosition: "bottom",
+    // captionPosition: "bottom",
     captionDelay: 250,
   });
 }
