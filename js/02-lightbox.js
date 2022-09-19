@@ -14,7 +14,8 @@ function createImgMarkup(imgArr) {
     })
     .join("");
 }
-console.log(galleryItems);
+
+let lightbox = {};
 
 let modaleBoxGallery = {};
 galleryDiv.addEventListener("click", onGalleryImgClick);
@@ -24,15 +25,23 @@ function onGalleryImgClick(evt) {
   if (!isGalleryImgEl) {
     return;
   }
-  const clickedImgOriginalUrl = evt.target.dataset.source;
+
+  if (lightbox.eventNamespace === "simplelightbox") {
+    document.querySelectorAll(".sl-wrapper").forEach((el) => el.remove());
+    document.querySelectorAll(".sl-overlay").forEach((el) => el.remove());
+  }
+  const clickedImgOriginalUrl = evt.target.parentElement;
 
   createModaleBoxGallery(clickedImgOriginalUrl);
 }
-function createModaleBoxGallery(imgClickedUrl) {
-  var lightbox = new SimpleLightbox(".gallery a", {
+function createModaleBoxGallery(imgUrl) {
+  lightbox = new SimpleLightbox(".gallery a", {
     // captionType: "attr",
     captionsData: "alt",
     // captionPosition: "bottom",
     captionDelay: 250,
   });
+  console.log(lightbox);
+  lightbox.open(imgUrl);
 }
+console.log(lightbox.eventNamespace);

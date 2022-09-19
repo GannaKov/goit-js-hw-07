@@ -28,7 +28,7 @@ function onGalleryImgClick(evt) {
     return;
   }
   const clickedImgOriginalUrl = evt.target.dataset.source;
-
+  console.dir(evt.target);
   createModaleBoxGallery(clickedImgOriginalUrl);
 }
 function createModaleBoxGallery(imgUrl) {
