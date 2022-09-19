@@ -1,16 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
 
-// {/* <div class="gallery__item">
-//   <a class="gallery__link" href="large-image.jpg">
-//     <img
-//       class="gallery__image"
-//       src="small-image.jpg"
-//       data-source="large-image.jpg"
-//       alt="Image description"
-//     />
-//   </a>
-// </div> */}
 const galleryDiv = document.querySelector(".gallery");
 const imgMarkup = createImgMarkup(galleryItems);
 galleryDiv.insertAdjacentHTML("beforeend", imgMarkup);
@@ -30,6 +19,7 @@ function createImgMarkup(imgArr) {
     })
     .join("");
 }
+let modaleBoxGallery = {};
 galleryDiv.addEventListener("click", onGalleryImgClick);
 function onGalleryImgClick(evt) {
   evt.preventDefault();
@@ -38,5 +28,17 @@ function onGalleryImgClick(evt) {
     return;
   }
   const clickedImgOriginalUrl = evt.target.dataset.source;
-  console.log(clickedImgUrl);
+
+  createModaleBoxGallery(clickedImgOriginalUrl);
+}
+function createModaleBoxGallery(imgUrl) {
+  modaleBoxGallery = basicLightbox.create(`<img src="${imgUrl}">`);
+  modaleBoxGallery.show();
+}
+
+document.addEventListener("keyup", onEscClickClose);
+function onEscClickClose(evt) {
+  if (evt.code === "Escape") {
+    modaleBoxGallery.close();
+  }
 }
