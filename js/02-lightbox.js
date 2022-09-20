@@ -29,6 +29,8 @@ function onGalleryImgClick(evt) {
   if (lightbox.eventNamespace === "simplelightbox") {
     document.querySelectorAll(".sl-wrapper").forEach((el) => el.remove());
     document.querySelectorAll(".sl-overlay").forEach((el) => el.remove());
+    const bodyEl = document.querySelector("body");
+    bodyEl.style.paddingRight = 0 + "px";
   }
   const clickedImgOriginalUrl = evt.target.parentElement;
 
