@@ -28,17 +28,46 @@ function onGalleryImgClick(evt) {
     return;
   }
   const clickedImgOriginalUrl = evt.target.dataset.source;
-  console.dir(evt.target);
+
   createModaleBoxGallery(clickedImgOriginalUrl);
 }
 function createModaleBoxGallery(imgUrl) {
   modaleBoxGallery = basicLightbox.create(`<img src="${imgUrl}">`);
   modaleBoxGallery.show();
+  document.addEventListener("keyup", onEscClickClose);
 }
 
-document.addEventListener("keyup", onEscClickClose);
 function onEscClickClose(evt) {
   if (evt.code === "Escape") {
     modaleBoxGallery.close();
+    console.log(evt);
+    document.removeEventListener("keyup", onEscClickClose);
   }
 }
+
+// --------- Var 2 How to create-------------
+// const galleryDiv = document.querySelector(".gallery");
+
+// let items = galleryItems;
+
+// const galleryTemplate = ({
+//   preview,
+//   original,
+//   description,
+// }) => `<div class="gallery__item">
+//   <a class="gallery__link" href="${original}">
+//     <img
+//       class="gallery__image"
+//       src="${preview}"
+//       data-source="${original}"
+//       alt="${description}"
+//     />
+//   </a>
+// </div>`;
+
+// const render = () => {
+//   const imgMarkup = items.map((item) => galleryTemplate(item)).join("");
+
+//   galleryDiv.insertAdjacentHTML("beforeend", imgMarkup);
+// };
+// render();
