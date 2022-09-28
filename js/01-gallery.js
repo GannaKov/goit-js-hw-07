@@ -34,17 +34,34 @@ function onGalleryImgClick(evt) {
 function createModaleBoxGallery(imgUrl) {
   modaleBoxGallery = basicLightbox.create(`<img src="${imgUrl}">`);
   modaleBoxGallery.show();
-  document.addEventListener("keyup", onEscClickClose);
+  window.addEventListener("keydown", onEscClickClose);
 }
 
 function onEscClickClose(evt) {
   if (evt.code === "Escape") {
     modaleBoxGallery.close();
     console.log(evt);
-    document.removeEventListener("keyup", onEscClickClose);
+    window.removeEventListener("keydown", onEscClickClose);
   }
 }
+// ---------- Var How to create --------
+// const gallerryBox = document.querySelector(".gallery");
 
+// const render = galleryItems
+//   .map(
+//     (item) => `<div class="gallery__item">
+//   <a class="gallery__link" href="${item.original}">
+//     <img
+//       class="gallery__image"
+//       src="${item.preview}"
+//       data-source="${item.original}"
+//       alt="${item.description}"
+//     />
+//   </a>
+// </div>`
+//   )
+//   .join("");
+// gallerryBox.insertAdjacentHTML("beforeend", render);
 // --------- Var 2 How to create-------------
 // const galleryDiv = document.querySelector(".gallery");
 
@@ -71,3 +88,57 @@ function onEscClickClose(evt) {
 //   galleryDiv.insertAdjacentHTML("beforeend", imgMarkup);
 // };
 // render();
+// ------------ Var Vlad --------------
+// const gallerryBox = document.querySelector(".gallery");
+// // console.log(gallerryBox);
+
+// const render = galleryItems
+//   .map(
+//     (item) => `<div class="gallery__item">
+//   <a class="gallery__link" href="${item.original}">
+//     <img
+//       class="gallery__image"
+//       src="${item.preview}"
+//       data-source="${item.original}"
+//       alt="${item.description}"
+//     />
+//   </a>
+// </div>`
+//   )
+//   .join("");
+// gallerryBox.insertAdjacentHTML("beforeend", render);
+
+// gallerryBox.addEventListener("click", onClick);
+
+// function onClick(e) {
+//   e.preventDefault();
+//   const targetImg = e.target.nodeName === "IMG";
+//   if (!targetImg) {
+//     return;
+//   }
+
+//   const options = {
+//     onShow: () => {
+//       window.addEventListener("keydown", onEscClose);
+//       instance.element().querySelector("img").onclick = instance.close;
+//     },
+
+//     onClose: () => {
+//       window.removeEventListener("keydown", onEscClose);
+//     },
+//   };
+
+//   const instance = basicLightbox.create(
+//     `<div class="modal"><img src="${e.target.dataset.source}"/></div>`,
+//     options
+//   );
+
+//   function onEscClose(e) {
+//     if (e.code === "Escape") {
+//       instance.close();
+//       console.log(e);
+//     }
+//   }
+
+//   instance.show();
+// }

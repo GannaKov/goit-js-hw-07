@@ -15,12 +15,14 @@ function createImgMarkup(imgArr) {
     .join("");
 }
 
-lightbox = new SimpleLightbox(".gallery a", {
+const lightbox = new SimpleLightbox(".gallery a", {
   // captionType: "attr",
   captionsData: "alt",
   // captionPosition: "bottom",
   captionDelay: 250,
 });
+
+// ................................
 // ................................
 
 // galleryDiv.addEventListener("click", onGalleryImgClick);
