@@ -44,6 +44,57 @@ function onEscClickClose(evt) {
     window.removeEventListener("keydown", onEscClickClose);
   }
 }
+// ---------- from Lesson --------
+// const galleryDiv = document.querySelector(".gallery");
+// const imgMarkup = createImgMarkup(galleryItems);
+// galleryDiv.insertAdjacentHTML("beforeend", imgMarkup);
+// function createImgMarkup(imgArr) {
+//   return imgArr
+//     .map(({ preview, original, description }) => {
+//       return `<div class="gallery__item">
+//   <a class="gallery__link" href="${original}">
+//     <img
+//       class="gallery__image"
+//       src="${preview}"
+//       data-source="${original}"
+//       alt="${description}"
+//     />
+//   </a>
+// </div>`;
+//     })
+//     .join("");
+// }
+// let modaleBoxGallery = {};
+// galleryDiv.addEventListener("click", onGalleryImgClick);
+// function onGalleryImgClick(evt) {
+//   console.log(evt);
+//   evt.preventDefault();
+//   const isGalleryImgEl = evt.target.classList.contains("gallery__image");
+//   if (!isGalleryImgEl) {
+//     return;
+//   }
+//   const clickedImgOriginalUrl = evt.target.dataset.source;
+
+//   createModaleBoxGallery(clickedImgOriginalUrl);
+//   modaleBoxGallery.show();
+// }
+// function createModaleBoxGallery(imgUrl) {
+//   modaleBoxGallery = basicLightbox.create(`<img src="${imgUrl}">`, {
+//     onShow: () => {
+//       document.addEventListener("keydown", onEscClick);
+//     },
+//     onClose: () => {
+//       document.removeEventListener("keydown", onEscClick);
+//     },
+//   });
+//   // console.log(modaleBoxGallery);
+// }
+// function onEscClick(evt) {
+//   if (evt.code === "Escape") {
+//     modaleBoxGallery.close();
+//     console.log(evt);
+//   }
+// }
 // ---------- Var How to create --------
 // const gallerryBox = document.querySelector(".gallery");
 
@@ -120,7 +171,8 @@ function onEscClickClose(evt) {
 //   const options = {
 //     onShow: () => {
 //       window.addEventListener("keydown", onEscClose);
-//       instance.element().querySelector("img").onclick = instance.close;
+
+//       instance.element().querySelector("img").onclick = instance.close; // по моеу это не нужно
 //     },
 
 //     onClose: () => {
